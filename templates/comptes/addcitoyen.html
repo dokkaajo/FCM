@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+{% block contenu %}
+<h2> Étape2:</h2>
+{% load crispy_forms_tags %}
+
+<form action="" method="POST"  enctype="multipart/form-data"  >
+    {% csrf_token %}
+    {{ formcitoyen | crispy }}
+
+  <button  type="submit" class="btn btn-primary" >Suvegarder</button>
+</form>
+
+
+
+{% endblock %}
+</body>
+
+</html>

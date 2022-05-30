@@ -1,0 +1,106 @@
+{% extends 'main.html' %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+{% block contenu %}
+<body>
+
+
+<h1 > Fuite des cerveaux - CV</h1>
+
+    <div class="row">
+        {% for cv in allcvs %}
+
+        <div class="col-md-4 col-lg-4   mb-2 formation_bloc">
+
+           <div class="cadre_bloc ">
+               <h2 style="text-align:center;font-size:23px"> {{cv.cvTitre }}</h2>
+               {% if cv.cvCitoyenID.c_Image %}
+               <img src="{{cv.cvCitoyenID.c_Image.url }} " class="img-fluid  img-responsive"  style="height:338px;"/>
+               {% endif %}
+
+
+           </div>
+
+             <div class="col-md-12  col-lg-12  plusDetails" >
+
+                <h2 style="font-size:20px"> {{ cv.cvCitoyenID.c_UserID.first_name }}  {{ cv.cvCitoyenID.c_UserID.last_name }} </h2>
+
+                 <a href="{%  url 'voirprofile' %}" class="btn btn-primary  " > Voir son profile</a>
+
+
+             </div>
+
+
+
+
+        </div>
+
+        <p> </p>
+        {% endfor %}
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+ <style>
+    .formation_bloc
+    {
+      background-color:#625B48;   /*#8d2607;*/
+      border: 5px solid white;
+      height:510px;
+      margin-top:10px;
+
+    }
+ .formation_bloc h2
+     {
+          color:white;
+          font-weight: bolder;
+     }
+.titre-center
+     {
+
+     	margin:0 auto;
+     	text-align:center;
+     }
+
+.cadre_bloc
+    {
+      margin: 0px ;
+      padding:0px;
+      margin-top:10px;
+    }
+
+.plusDetails
+    {
+        text-align:center;
+        font-size:16px;
+        margin-top:0px;
+    }
+.voirprofile
+    {
+       height:50px  !important;
+       background-color:red;
+       margin-top:10px;
+    }
+
+</style>
+{% endblock %}
+</html>

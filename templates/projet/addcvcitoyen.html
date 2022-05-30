@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block contenu %}
+
+<body>
+{% load crispy_forms_tags %}
+<h2> Ajouter un CV</h2>
+<form action="" method="POST"  enctype="multipart/form-data" >
+  {%  csrf_token %}
+
+  {{ fom_cv | crispy }}
+
+    <hr/>
+    <button  type="submit" class="btn btn-primary" >Suvegarder</button>
+    <hr/>
+
+</form>
+
+</body>
+{% endblock %}
+</html>
